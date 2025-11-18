@@ -5,7 +5,9 @@
 This repository contains my solution for the CTF VaultBreak by SOLCTF.
 If you want to run this in docker just reopen the repository via devcontainer in VSCode.
 For running my solution simply set up a local sonala validator and run
- ```npx tsx build_txs.ts ```
+ ```bash
+ npx tsx build_txs.ts
+```
 Below you find the original README.
 If you have anything to add to my solution feel free to open a issue or contact me directly via X: @0x6vb
 
