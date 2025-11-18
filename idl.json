@@ -1,0 +1,190 @@
+{
+    "address": "uWGrWGNk4enkjkboj6ErEW8FKDQBaFCUGqtpcw7Ea5m",
+    "metadata": {
+        "name": "vault_break",
+        "version": "0.1.0",
+        "spec": "0.1.0",
+        "description": "Created with Anchor"
+    },
+    "instructions": [
+        {
+            "name": "vault_create",
+            "discriminator": [
+                109,
+                191,
+                172,
+                125,
+                83,
+                225,
+                56,
+                122
+            ],
+            "accounts": [
+                {
+                    "name": "admin",
+                    "writable": true,
+                    "signer": true
+                },
+                {
+                    "name": "vault",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [
+                                    118,
+                                    97,
+                                    117,
+                                    108,
+                                    116
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "system_program",
+                    "address": "11111111111111111111111111111111"
+                }
+            ],
+            "args": []
+        },
+        {
+            "name": "vault_open",
+            "discriminator": [
+                88,
+                119,
+                117,
+                99,
+                145,
+                1,
+                225,
+                154
+            ],
+            "accounts": [
+                {
+                    "name": "authority",
+                    "writable": true,
+                    "signer": true
+                },
+                {
+                    "name": "vault",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [
+                                    118,
+                                    97,
+                                    117,
+                                    108,
+                                    116
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ],
+            "args": []
+        },
+        {
+            "name": "vault_reset",
+            "discriminator": [
+                162,
+                127,
+                159,
+                174,
+                179,
+                116,
+                127,
+                132
+            ],
+            "accounts": [
+                {
+                    "name": "resetter",
+                    "writable": true,
+                    "signer": true
+                },
+                {
+                    "name": "vault",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [
+                                    118,
+                                    97,
+                                    117,
+                                    108,
+                                    116
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ],
+            "args": [
+                {
+                    "name": "new_admin",
+                    "type": "pubkey"
+                }
+            ]
+        }
+    ],
+    "accounts": [
+        {
+            "name": "Vault",
+            "discriminator": [
+                211,
+                8,
+                232,
+                43,
+                2,
+                152,
+                117,
+                119
+            ]
+        }
+    ],
+    "errors": [
+        {
+            "code": 6000,
+            "name": "VaultLocked",
+            "msg": "Vault is locked"
+        },
+        {
+            "code": 6001,
+            "name": "Unauthorized",
+            "msg": "Unauthorized: Only the vault admin can open the vault"
+        }
+    ],
+    "types": [
+        {
+            "name": "Vault",
+            "type": {
+                "kind": "struct",
+                "fields": [
+                    {
+                        "name": "admin",
+                        "type": "pubkey"
+                    },
+                    {
+                        "name": "bump",
+                        "type": "u8"
+                    },
+                    {
+                        "name": "flag_captured",
+                        "type": "bool"
+                    },
+                    {
+                        "name": "locked",
+                        "type": "bool"
+                    }
+                ]
+            }
+        }
+    ]
+}
